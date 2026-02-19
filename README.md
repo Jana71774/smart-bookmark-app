@@ -1,36 +1,125 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🔖 Smart Bookmark App
 
-## Getting Started
+A modern full-stack bookmark management application built with Next.js, Supabase, and deployed on Vercel.
 
-First, run the development server:
+🚀 Live Demo
 
-```bash
+🌍 https://smart-bookmark-app-wine-six.vercel.app/
+
+✨ Features
+
+🔐 Google Authentication (OAuth 2.0)
+
+➕ Add personal bookmarks
+
+📋 View saved bookmarks
+
+❌ Delete bookmarks
+
+🔒 User-specific data using Row-Level Security
+
+⚡ Real-time updates (Supabase Realtime)
+
+📱 Fully responsive UI
+
+🛠 Tech Stack
+Layer	Technology
+Frontend	Next.js (App Router)
+Backend	Supabase
+Database	PostgreSQL
+Authentication	Supabase Auth (Google OAuth)
+Deployment	Vercel
+Language	TypeScript
+📂 Project Structure
+smart-bookmark-app/
+│
+├── app/                # App Router pages
+├── components/         # Reusable UI components
+├── lib/                # Supabase client
+├── public/             # Static assets
+├── package.json
+└── README.md
+
+⚙️ Installation & Setup
+1️⃣ Clone the repository
+git clone https://github.com/Jana71774/smart-bookmark-app.git
+cd smart-bookmark-app
+
+2️⃣ Install dependencies
+npm install
+
+3️⃣ Add Environment Variables
+
+Create a .env.local file:
+
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+4️⃣ Run Development Server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Open:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+http://localhost:3000
 
-## Learn More
+🗄 Database Schema (Supabase)
+create table bookmarks (
+  id uuid default uuid_generate_v4() primary key,
+  user_id uuid references auth.users not null,
+  title text not null,
+  url text not null,
+  created_at timestamp default now()
+);
 
-To learn more about Next.js, take a look at the following resources:
+alter table bookmarks enable row level security;
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+create policy "Users manage own bookmarks"
+on bookmarks for all
+using (auth.uid() = user_id);
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+🔐 OAuth Configuration
 
-## Deploy on Vercel
+Google OAuth requires:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Authorized JavaScript Origin:
+https://smart-bookmark-app-wine-six.vercel.app
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Redirect URI:
+https://YOUR_PROJECT_ID.supabase.co/auth/v1/callback
+
+🎯 Key Learning Outcomes
+
+Implemented OAuth authentication
+
+Configured Row-Level Security (RLS)
+
+Integrated real-time database updates
+
+Managed environment variables securely
+
+Deployed full-stack application to production
+
+Used Git & GitHub workflow professionally
+
+👨‍💻 Author
+
+Janarthanan M
+B.E Computer Science and Engineering
+Aspiring Full Stack Developer
+
+⭐ If you like this project
+
+Give it a ⭐ on GitHub!
+
+If you want, I can also:
+
+🔥 Make it more ATS-friendly for recruiters
+
+🧠 Create interview explanation script
+
+📢 Write LinkedIn launch post
+
+💼 Convert this into a portfolio project description
+
+Just tell me what you need next 👌
