@@ -107,19 +107,3 @@ Used Git & GitHub workflow professionally
 Janarthanan M
 B.E Computer Science and Engineering
 Aspiring Full Stack Developer
-
-⭐ If you like this project
-
-Give it a ⭐ on GitHub!
-
-If you want, I can also:
-
-🔥 Make it more ATS-friendly for recruiters
-
-🧠 Create interview explanation script
-
-📢 Write LinkedIn launch post
-
-💼 Convert this into a portfolio project description
-
-Just tell me what you need next 👌
