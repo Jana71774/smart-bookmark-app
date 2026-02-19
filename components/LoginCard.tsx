@@ -1,4 +1,5 @@
 "use client";
+
 import { supabase } from "@/lib/supabaseClient";
 
 export default function LoginCard() {
@@ -9,18 +10,17 @@ export default function LoginCard() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="bg-white/20 backdrop-blur-lg p-10 rounded-2xl shadow-2xl text-center w-[350px]">
-        <h1 className="text-2xl font-bold text-white mb-6">
-          Smart Bookmark App
-        </h1>
-        <button
-          onClick={login}
-          className="w-full bg-white text-gray-800 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
-        >
-          Continue with Google
-        </button>
-      </div>
+    <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md text-center">
+      <h2 className="text-2xl font-bold mb-4">Welcome 👋</h2>
+      <p className="text-gray-600 mb-6">
+        Sign in to manage your bookmarks
+      </p>
+      <button
+        onClick={login}
+        className="w-full bg-black text-white py-3 rounded-lg hover:opacity-90 transition"
+      >
+        Continue with Google
+      </button>
     </div>
   );
 }

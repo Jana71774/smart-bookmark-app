@@ -1,6 +1,9 @@
+import "./app";
+import "./globals.css"
+
 export const metadata = {
-  title: "Smart Bookmark App",
-  description: "Professional Realtime Bookmark Manager",
+  title: "Smart Bookmark Manager",
+  description: "Save and manage your bookmarks securely",
 };
 
 export default function RootLayout({
@@ -10,9 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 min-h-screen">
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
